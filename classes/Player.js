@@ -18,10 +18,22 @@ class Player {
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
     update(ctx) {
+        this.velocity.x = 0;
+        if (this.game.keys.includes('d') || this.game.keys.includes('ArrowRight')) {
+            this.velocity.x = 1;
+        } else if (this.game.keys.includes('a') || this.game.keys.includes('ArrowLeft')) {
+            this.velocity.x = -1;
+        }
+
+        if (this.game.keys.includes(' ')) this.velocity.y = -10;
         this.draw(ctx);
-        if (this.position.y + this.height < this.game.height) {
-            this.position.y += this.velocity.y;
-            this.velocity.y += 0.5;
+        this.position.y += this.velocity.y;
+        this.position.x += this.velocity.x;
+
+        if (this.position.y + this.height + this.velocity.y < this.game.height) {
+            this.velocity.y += this.game.gravity;
+        } else {
+            this.velocity.y = 0;
         }
     }
 }
