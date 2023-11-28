@@ -1,9 +1,9 @@
 class Player {
-    constructor(game, xPosition, yPosition) {
+    constructor(game, positionX, positionY) {
         this.game = game;
         this.position = {
-            x: xPosition,
-            y: yPosition,
+            x: positionX,
+            y: positionY,
         };
         this.velocity = {
             x: 0,
