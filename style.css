@@ -7,3 +7,6 @@ canvas {
     left: 50%;
     translate: -50% -50%;
 }
+img {
+    display: none;
+}

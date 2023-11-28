@@ -9,8 +9,8 @@ window.addEventListener('load', () => {
     const game = new Game(canvas);
 
     function animate() {
-        ctx.fillStyle = 'white';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // ctx.fillStyle = 'white';
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         game.render(ctx);
         window.requestAnimationFrame(animate);

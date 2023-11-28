@@ -16,7 +16,7 @@ class Game {
         this.background = new Sprite(0, 0, './img/background.png');
 
         this.scaledCanvas = {
-            with: this.canvas.width / 4,
+            width: this.canvas.width / 4,
             height: this.canvas.height / 4,
         };
 
@@ -74,11 +74,14 @@ class Game {
             this.canJump = true;
         });
     }
+
     render(ctx) {
+        // console.log(this.floorCollisions2D);
         ctx.save();
         ctx.scale(4, 4);
         ctx.translate(0, -this.background.image.height + this.scaledCanvas.height);
         this.background.update(ctx);
+
         this.collisionBlocks.forEach(collisionBlock => collisionBlock.update(ctx));
         this.collisionPlatforms.forEach(collisionPlatform => collisionPlatform.update(ctx));
         ctx.restore();
