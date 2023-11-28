@@ -11,6 +11,7 @@ class Player {
         };
         this.width = 100;
         this.height = 100;
+        this.movmentSpeed = 5;
     }
 
     draw(ctx) {
@@ -19,13 +20,13 @@ class Player {
     }
     update(ctx) {
         this.velocity.x = 0;
+
         if (this.game.keys.includes('d') || this.game.keys.includes('ArrowRight')) {
-            this.velocity.x = 1;
+            this.velocity.x = this.movmentSpeed;
         } else if (this.game.keys.includes('a') || this.game.keys.includes('ArrowLeft')) {
-            this.velocity.x = -1;
+            this.velocity.x = -this.movmentSpeed;
         }
 
-        if (this.game.keys.includes(' ')) this.velocity.y = -10;
         this.draw(ctx);
         this.position.y += this.velocity.y;
         this.position.x += this.velocity.x;
